@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.angel.curso.springboot.webapp.springboot_web.models.User;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,14 +42,19 @@ public class UserController {
 
     @GetMapping("/list")
     public String list(ModelMap model) {
-        List<User> users = Arrays.asList(
-                new User("Angel", "Ocaña", "anjaocar1425@gmail.com"),
-                new User("Nubia", "Juarez"));
 
-        model.addAttribute("users", users);
+        // model.addAttribute("users", users);
         model.addAttribute("title", "Listado de usuarios");
 
         return "list";
+    }
+
+    @ModelAttribute("users")
+    public List<User> usersModel() {
+        List<User> users = Arrays.asList(
+            new User("Angel", "Ocaña", "anjaocar1425@gmail.com"),
+            new User("Nubia", "Juarez"));
+        return users;
     }
 
 }
