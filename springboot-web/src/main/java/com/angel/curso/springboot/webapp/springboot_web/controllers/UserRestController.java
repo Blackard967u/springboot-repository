@@ -1,7 +1,9 @@
 package com.angel.curso.springboot.webapp.springboot_web.controllers;
 
-import java.util.Map;
-import java.util.HashMap;
+//import java.util.Map;
+import java.util.ArrayList;
+//import java.util.HashMap;
+import java.util.List;
 
 //import org.springframework.stereotype.Controller;
 //import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import com.angel.curso.springboot.webapp.springboot_web.models.User;
 import com.angel.curso.springboot.webapp.springboot_web.models.dto.UserDto;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api")
@@ -26,6 +29,20 @@ public class UserRestController {
         userDto.setTitle("Hola Mundo");
 
         return userDto;
+    }
+
+    @GetMapping("/list")
+    public List<User> list() {
+        User user = new User("Angel", "Ocaña");
+        User user2 = new User("Nubia", "Juarez");
+        User user3 = new User("Oscar", "Bruno");
+
+        List<User> users = new ArrayList<>();
+        users.add(user);
+        users.add(user2);
+        users.add(user3);
+
+        return users;
     }
 
     /*
