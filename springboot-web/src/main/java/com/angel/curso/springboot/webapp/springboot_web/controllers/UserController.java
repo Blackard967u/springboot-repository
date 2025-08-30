@@ -1,6 +1,5 @@
 package com.angel.curso.springboot.webapp.springboot_web.controllers;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.angel.curso.springboot.webapp.springboot_web.models.User;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -23,8 +21,8 @@ public class UserController {
     public String details(Model model) {
         User user = new User("Angel", "Ocaña");
         user.setEmail("anjaocar@gmail.com");
-        User user2 = new User("Nubia", "Juarez");
-        User user3 = new User("Oscar", "Bruno");
+        //User user2 = new User("Nubia", "Juarez");
+        //User user3 = new User("Oscar", "Bruno");
 
         model.addAttribute("title", "Hola mundo Springboot");
         model.addAttribute("user", user);
